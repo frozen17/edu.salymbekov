@@ -100,8 +100,7 @@ legend {
 .col-left {
 	margin-bottom: 0px;
 }
-.col-main {
-}
+
 .col-right {
 	margin-bottom: 0px;
 }
@@ -7931,7 +7930,6 @@ button.button.btn-proceed-checkout span {
 .brand-logo {
 	background-color: #f5f5f5;
 	margin: 15px 0px 0px 0px;
-	padding: 0px 0px 6px 0px;
 }
 .brand-logo .slider-items-products .item {
 	text-align: center;

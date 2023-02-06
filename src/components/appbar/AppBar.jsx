@@ -1,8 +1,10 @@
 import React from 'react';
+import './AppBar.css'
+
 
 const AppBar = () => {
     return (
-<div className="header-top" style={{backgroundColor: "blue"}}>
+<div className="header-top" >
       <div className="container">
         <div className="row"> 
           
@@ -39,6 +41,23 @@ const AppBar = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="search-row-appbar">
+        <div className="col-lg-2 col-sm-3 col-md-2"> 
+          <a className="logo" title="Magento Commerce" href="index.html"><img className='college-logo' alt="Magento Commerce" src={'https://salymbekov.kg/wp-content/themes/it_college/images/logo_w.svg'}/></a> 
+        </div>
+        <div className="col-lg-8 col-sm-6 col-md-8"> 
+          <div className="search-box">
+            <form action="cat" method="POST" id="search_mini_form" name="Categories">
+              
+              <input type="text" placeholder="Search here..."  maxLength="70" className="" name="search" id="search"/>
+              <button id="submit-button" className="search-btn-bg"><span>Search</span></button>
+            </form>
+            
+          </div>
+          
+        </div>
         </div>
       </div>
     </div>
