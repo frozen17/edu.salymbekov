@@ -8,6 +8,8 @@ import News from '../news/News';
 import Banner from '../banner/Banner';
 import Events from '../events/Events';
 
+
+
 const Home = () => {
 
 
@@ -122,7 +124,7 @@ const Home = () => {
         </aside>
       </div>
     </div>
-  </div>  
+  </div> 
   <Events/>
   <Banner/>
   <News/>
