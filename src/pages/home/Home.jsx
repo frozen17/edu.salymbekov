@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Slider from "react-slick";
 import "../../slick/slick.css";
 import "../../slick/slick-theme.css";
@@ -9,18 +9,20 @@ import Banner from '../banner/Banner';
 import Events from '../events/Events';
 import Teachers from '../teachers/Teachers';
 
+
+
 const Home = () => {
 
 
-  const sliderRef = useRef(null);
+
 
   var settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
-    initialSlide: 1,
+    initialSlide: 0,
     arrows:false,
     responsive: [
       {
@@ -50,16 +52,6 @@ const Home = () => {
     ],
   };
 
-
-
-  const next = () =>{
-    sliderRef.current?.slickNext();
-  }
-  const prev = () =>{
-    sliderRef.current?.slickPrev();
-  }
-
-
     return (
         <div>
           <div id="magik-slideshow" className="magik-slideshow">
@@ -69,35 +61,22 @@ const Home = () => {
 
 <div className="col-lg-8 col-sm-12 col-md-8 wow bounceInUp animated">
  <div id='rev_slider_4_wrapper' className='rev_slider_wrapper fullwidthbanner-container' > 
- <div id='rev_slider_4_wrapper' className='rev_slider_wrapper fullwidthbanner-container' >
-            <div id='rev_slider_4' className='rev_slider fullwidthabanner'>
-<Slider {...settings} ref={sliderRef}>
+<Slider {...settings}>
         
-          
+
 <li data-transition='random' data-slotamount='7' data-masterspeed='1000' data-thumb='../../assets/images/slider_img_2.jpg'><img src='../../assets/images/slide-img1.jpg' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="banner"/>
-                  <div    className='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='45'  data-y='30'  data-endspeed='500'  data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style={{zIndex: "2", whiteSpace: "nowrap"}}>Exclusive of designer</div>
-                  <div    className='tp-caption LargeTitle sfl  tp-resizeme ' data-x='45'  data-y='70'  data-endspeed='500'  data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style={{zIndex: "3", whiteSpace: "nowrap"}}>Handbags & Purses</div>
-                  <div    className='tp-caption sfb  tp-resizeme ' data-x='45'  data-y='360'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style={{zIndex: "4", whiteSpace: "nowrap"}}><a href='#index.html' className="view-more">View More</a> <a href='#index.html' className="buy-btn">Buy Now</a></div>
-                  <div    className='tp-caption Title sft  tp-resizeme ' data-x='45'  data-y='130'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style={{zIndex: "4", whiteSpace: "nowrap"}}>In augue urna, nunc, tincidunt, augue,<br/>
+                  <div    class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='45'  data-y='30'  data-endspeed='500'  data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style={{zIndex: "2", whiteSpace: "nowrap"}}>Exclusive of designer</div>
+                  <div    class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='45'  data-y='70'  data-endspeed='500'  data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style={{zIndex: "3", whiteSpace: "nowrap"}}>Handbags & Purses</div>
+                  <div    class='tp-caption sfb  tp-resizeme ' data-x='45'  data-y='360'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style={{zIndex: "4", whiteSpace: "nowrap"}}><a href='#index.html' class="view-more">View More</a> <a href='#index.htm' class="buy-btn">Buy Now</a></div>
+                  <div    class='tp-caption Title sft  tp-resizeme ' data-x='45'  data-y='130'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style={{zIndex: "4", whiteSpace: "nowrap"}}>In augue urna, nunc, tincidunt, augue,<br/>
                     augue facilisis facilisis.</div>
-                  <div    className='tp-caption Title sft  tp-resizeme ' data-x='45'  data-y='400'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style={{zIndex: "4", whiteSpace: "nowrap", fontSize: "11px"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                  <button onClick={prev}>назад</button><button onClick={next}>след</button>
+                  <div    class='tp-caption Title sft  tp-resizeme ' data-x='45'  data-y='400'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style={{zIndex: "4", whiteSpace: "nowrap", fontSize: "11px"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
                 </li>
-                <li data-transition='random' data-slotamount='7' data-masterspeed='1000' data-thumb='../../assets/images/slider_img_2.jpg' className="black-text"><img src='../../assets/images/slide-img2.jpg'  data-bgposition='left top'  data-bgfit='cover' data-bgrepeat='no-repeat' alt="banner"/>
-                  <div className='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='45'  data-y='30'  data-endspeed='500'  data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style={{zIndex: "2", whiteSpace: "nowrap"}}>Super Hot</div>
-                  <div    className='tp-caption LargeTitle sfl  tp-resizeme ' data-x='45'  data-y='70'  data-endspeed='500'  data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style={{zIndex: "3", whiteSpace: "nowrap"}}>Go Lightly</div>
-                  <div    className='tp-caption sfb  tp-resizeme ' data-x='45'  data-y='360'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style={{zIndex: "4", whiteSpace: "nowrap"}}><a href='#index.html' className="view-more">View More</a> <a href='#index.html' className="buy-btn">Buy Now</a></div>
-                  <div    className='tp-caption Title sft  tp-resizeme ' data-x='45'  data-y='130'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style={{zIndex: "4", whiteSpace: "nowrap"}}>In augue urna, nunc, tincidunt, augue,<br/>
-                    augue facilisis facilisis.</div>
-                  <div    className='tp-caption Title sft  tp-resizeme ' data-x='45'  data-y='400'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style={{zIndex: "4", whiteSpace: "nowrap", fontSize: "11px"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                  <button onClick={prev}>назад</button><button onClick={next}>след</button>
-                </li>
+
+
 
         
 </Slider>
-              <div className="tp-bannertimer"></div>
-            </div>
-          </div>
   </div> 
           </div>
         {/* <div className="col-lg-8 col-sm-12 col-md-8 wow bounceInUp animated">
@@ -134,16 +113,12 @@ const Home = () => {
         </aside>
       </div>
     </div>
-  </div>  
+  </div> 
   <Events/>
   <Banner/>
   <News/>
-  <section className="middle-slider container wow bounceInUp animated">
-        <div className="row">
   <Students/>
   <Teachers/>
-  </div>
-      </section>
   <LatestBlog/>
         </div>
 

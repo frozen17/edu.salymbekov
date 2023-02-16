@@ -1,13 +1,31 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Slider from "react-slick";
 import "../../slick/slick.css";
 import "../../slick/slick-theme.css";
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 
 const Events = () => {
 
 
     const sliderRef = useRef(null);
+    const [events, setEvents] = useState(null)
+
+
+    const getData = async () => {
+      try {
+        await axios
+          .get(
+            "https://backend.salymbekov.kg/wp-json/wp/v2/news?per_page=100"
+          )
+          .then((res) => setEvents(res.data));
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    useEffect(() => {
+      getData();
+    }, []);
 
 
     var settings = {
@@ -72,11 +90,13 @@ const Events = () => {
                 </div>
                 <div id="best-seller-slider" className="product-flexslider hidden-buttons">
                   <div className="slider-items slider-width-col4"> 
+                  {console.log(events)}
                   <Slider {...settings} ref={sliderRef}>
-                    <div className="item">
+                  {events?.map((event) => (
+                    <div className="item" key={event.id}>
                       <div className="col-item">
                         <div className="sale-label sale-top-right">Sale</div>
-                        <div className="product-image-area"> <a className="product-image" title="Sample Product" href="http://ow.ly/XqzNo"> <img src="../../assets/products-images/product1.jpg" className="img-responsive" alt="" /> </a>
+                        <div className="product-image-area"> <a className="product-image" title="Sample Product" href="http://ow.ly/XqzNo"> <img src={event.acf.file1 ? event.acf.file1 : "../../assets/products-images/product1.jpg"} className="img-responsive" alt="" /> </a>
                           <div className="hover_fly"> <Link className="exclusive ajax_add_to_cart_button" to="#" title="Add to cart">
                             <div><i className="icon-shopping-cart"></i><span>Add to cart</span></div>
                             </Link> <a className="quick-view" href="quick_view.html">
@@ -89,17 +109,14 @@ const Events = () => {
                         </div>
                         <div className="info">
                           <div className="info-inner">
-                            <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> Sample Product </a> </div>
+                            <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> {event.title.rendered} </a> </div>
                             <div className="item-content">
                               <div className="ratings">
                                 <div className="rating-box">
                                   <div className="rating"></div>
                                 </div>
                               </div>
-                              <div className="price-box">
-                                <p className="special-price"> <span className="price"> $45.00 </span> </p>
-                                <p className="old-price"> <span className="price-sep">-</span> <span className="price"> $50.00 </span> </p>
-                              </div>
+                              <p>{event.acf.short_text}</p>
                             </div>
                           </div>
                           
@@ -107,239 +124,8 @@ const Events = () => {
                         </div>
                       </div>
                     </div>
-                    
-                    <div className="item">
-                      <div className="col-item">
-                        <div className="new-label new-top-right">New</div>
-                        <div className="product-image-area"> <a className="product-image" title="Sample Product" href="http://ow.ly/XqzNo"> <img src="../../assets/products-images/product1.jpg" className="img-responsive" alt="a" /> </a>
-                          <div className="hover_fly"> <Link className="exclusive ajax_add_to_cart_button" to="#" title="Add to cart">
-                            <div><i className="icon-shopping-cart"></i><span>Add to cart</span></div>
-                            </Link> <a className="quick-view" href="quick_view.html">
-                            <div><i className="icon-eye-open"></i><span>Quick view</span></div>
-                            </a> <a className="add_to_compare" href="compare.html">
-                            <div><i className="icon-random"></i><span>Add to compare</span></div>
-                            </a> <a className="addToWishlist wishlistProd_5" href="http://bit.do/bromq" >
-                            <div><i className="icon-heart"></i><span>Add to Wishlist</span></div>
-                            </a> </div>
-                        </div>
-                        <div className="info">
-                          <div className="info-inner">
-                            <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> Sample Product </a> </div>
-                            <div className="item-content">
-                              <div className="ratings">
-                                <div className="rating-box">
-                                  <div className="rating"></div>
-                                </div>
-                              </div>
-                              <div className="price-box"> <span className="regular-price"> <span className="price">$422.00</span> </span> </div>
-                            </div>
-                          </div>
-                          
-                          <div className="clearfix"> </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="item">
-                      <div className="col-item">
-                        <div className="sale-label sale-top-right">Sale</div>
-                        <div className="product-image-area"> <a className="product-image" title="Sample Product" href="http://ow.ly/XqzNo"> <img alt="a" className="img-responsive" src="../../assets/products-images/product1.jpg"/> </a>
-                          <div className="hover_fly"> <Link className="exclusive ajax_add_to_cart_button" to="#" title="Add to cart">
-                            <div><i className="icon-shopping-cart"></i><span>Add to cart</span></div>
-                            </Link> <a className="quick-view" href="quick_view.html">
-                            <div><i className="icon-eye-open"></i><span>Quick view</span></div>
-                            </a> <a className="add_to_compare" href="compare.html">
-                            <div><i className="icon-random"></i><span>Add to compare</span></div>
-                            </a> <a className="addToWishlist wishlistProd_5" href="http://bit.do/bromq" >
-                            <div><i className="icon-heart"></i><span>Add to Wishlist</span></div>
-                            </a> </div>
-                        </div>
-                        <div className="info">
-                          <div className="info-inner">
-                            <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> Sample Product </a> </div>
-                            <div className="item-content">
-                              <div className="ratings">
-                                <div className="rating-box">
-                                  <div className="rating"></div>
-                                </div>
-                              </div>
-                              <div className="price-box"> <span className="regular-price"> <span className="price">$50.00</span> </span> </div>
-                            </div>
-                          </div>
-                          
-                          <div className="clearfix"> </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="item">
-                      <div className="col-item">
-                        <div className="sale-label sale-top-right">Sale</div>
-                        <div className="product-image-area"> <a className="product-image" title="Sample Product" href="http://ow.ly/XqzNo"> <img alt="a" className="img-responsive" src="../../assets/products-images/product1.jpg"/> </a>
-                          <div className="hover_fly"> <Link className="exclusive ajax_add_to_cart_button" to="#" title="Add to cart">
-                            <div><i className="icon-shopping-cart"></i><span>Add to cart</span></div>
-                            </Link> <a className="quick-view" href="quick_view.html">
-                            <div><i className="icon-eye-open"></i><span>Quick view</span></div>
-                            </a> <a className="add_to_compare" href="compare.html">
-                            <div><i className="icon-random"></i><span>Add to compare</span></div>
-                            </a> <a className="addToWishlist wishlistProd_5" href="http://bit.do/bromq" >
-                            <div><i className="icon-heart"></i><span>Add to Wishlist</span></div>
-                            </a> </div>
-                        </div>
-                        <div className="info">
-                          <div className="info-inner">
-                            <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> Sample Product </a> </div>
-                            <div className="item-content">
-                              <div className="ratings">
-                                <div className="rating-box">
-                                  <div className="rating"></div>
-                                </div>
-                              </div>
-                              <div className="price-box">
-                                <p className="special-price"> <span className="price"> $45.00 </span> </p>
-                                <p className="old-price"> <span className="price-sep">-</span> <span className="price"> $50.00 </span> </p>
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <div className="clearfix"> </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="item">
-                      <div className="col-item">
-                        <div className="sale-label sale-top-right">Sale</div>
-                        <div className="product-image-area"> <a className="product-image" title="Sample Product" href="http://ow.ly/XqzNo"> <img alt="a" className="img-responsive" src="../../assets/products-images/product1.jpg"/> </a>
-                          <div className="hover_fly"> <Link className="exclusive ajax_add_to_cart_button" to="#" title="Add to cart">
-                            <div><i className="icon-shopping-cart"></i><span>Add to cart</span></div>
-                            </Link> <a className="quick-view" href="quick_view.html">
-                            <div><i className="icon-eye-open"></i><span>Quick view</span></div>
-                            </a> <a className="add_to_compare" href="compare.html">
-                            <div><i className="icon-random"></i><span>Add to compare</span></div>
-                            </a> <a className="addToWishlist wishlistProd_5" href="http://bit.do/bromq" >
-                            <div><i className="icon-heart"></i><span>Add to Wishlist</span></div>
-                            </a> </div>
-                        </div>
-                        <div className="info">
-                          <div className="info-inner">
-                            <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> Sample Product </a> </div>
-                            <div className="item-content">
-                              <div className="ratings">
-                                <div className="rating-box">
-                                  <div className="rating"></div>
-                                </div>
-                              </div>
-                              <div className="price-box">
-                                <p className="special-price"> <span className="price"> $45.00 </span> </p>
-                                <p className="old-price"> <span className="price-sep">-</span> <span className="price"> $50.00 </span> </p>
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <div className="clearfix"> </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="item">
-                      <div className="col-item">
-                        <div className="new-label new-top-right">New</div>
-                        <div className="product-image-area"> <a className="product-image" title="Sample Product" href="http://ow.ly/XqzNo"> <img alt="a" className="img-responsive" src="../../assets/products-images/product1.jpg"/> </a>
-                          <div className="hover_fly"> <Link className="exclusive ajax_add_to_cart_button" to="#" title="Add to cart">
-                            <div><i className="icon-shopping-cart"></i><span>Add to cart</span></div>
-                            </Link> <a className="quick-view" href="quick_view.html">
-                            <div><i className="icon-eye-open"></i><span>Quick view</span></div>
-                            </a> <a className="add_to_compare" href="compare.html">
-                            <div><i className="icon-random"></i><span>Add to compare</span></div>
-                            </a> <a className="addToWishlist wishlistProd_5" href="http://bit.do/bromq" >
-                            <div><i className="icon-heart"></i><span>Add to Wishlist</span></div>
-                            </a> </div>
-                        </div>
-                        <div className="info">
-                          <div className="info-inner">
-                            <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> Sample Product </a> </div>
-                            <div className="item-content">
-                              <div className="ratings">
-                                <div className="rating-box">
-                                  <div className="rating"></div>
-                                </div>
-                              </div>
-                              <div className="price-box"> <span className="regular-price"> <span className="price">$422.00</span> </span> </div>
-                            </div>
-                          </div>
-                          
-                          <div className="clearfix"> </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="item">
-                      <div className="col-item">
-                        <div className="sale-label sale-top-right">Sale</div>
-                        <div className="product-image-area"> <a className="product-image" title="Sample Product" href="http://ow.ly/XqzNo"> <img alt="a" className="img-responsive" src="../../assets/products-images/product1.jpg"/> </a>
-                          <div className="hover_fly"> <Link className="exclusive ajax_add_to_cart_button" to="#" title="Add to cart">
-                            <div><i className="icon-shopping-cart"></i><span>Add to cart</span></div>
-                            </Link> <a className="quick-view" href="quick_view.html">
-                            <div><i className="icon-eye-open"></i><span>Quick view</span></div>
-                            </a> <a className="add_to_compare" href="compare.html">
-                            <div><i className="icon-random"></i><span>Add to compare</span></div>
-                            </a> <a className="addToWishlist wishlistProd_5" href="http://bit.do/bromq" >
-                            <div><i className="icon-heart"></i><span>Add to Wishlist</span></div>
-                            </a> </div>
-                        </div>
-                        <div className="info">
-                          <div className="info-inner">
-                            <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> Sample Product </a> </div>
-                            <div className="item-content">
-                              <div className="ratings">
-                                <div className="rating-box">
-                                  <div className="rating"></div>
-                                </div>
-                              </div>
-                              <div className="price-box"> <span className="regular-price"> <span className="price">$50.00</span> </span> </div>
-                            </div>
-                          </div>
-                          
-                          <div className="clearfix"> </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="item">
-                      <div className="col-item">
-                        <div className="sale-label sale-top-right">Sale</div>
-                        <div className="product-image-area"> <a className="product-image" title="Sample Product" href="http://ow.ly/XqzNo"> <img alt="a" className="img-responsive" src="../../assets/products-images/product1.jpg"/> </a>
-                          <div className="hover_fly"> <Link className="exclusive ajax_add_to_cart_button" to="#" title="Add to cart">
-                            <div><i className="icon-shopping-cart"></i><span>Add to cart</span></div>
-                            </Link> <a className="quick-view" href="quick_view.html">
-                            <div><i className="icon-eye-open"></i><span>Quick view</span></div>
-                            </a> <a className="add_to_compare" href="compare.html">
-                            <div><i className="icon-random"></i><span>Add to compare</span></div>
-                            </a> <a className="addToWishlist wishlistProd_5" href="http://bit.do/bromq" >
-                            <div><i className="icon-heart"></i><span>Add to Wishlist</span></div>
-                            </a> </div>
-                        </div>
-                        <div className="info">
-                          <div className="info-inner">
-                            <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> Sample Product </a> </div>
-                            <div className="item-content">
-                              <div className="ratings">
-                                <div className="rating-box">
-                                  <div className="rating"></div>
-                                </div>
-                              </div>
-                              <div className="price-box">
-                                <p className="special-price"> <span className="price"> $45.00 </span> </p>
-                                <p className="old-price"> <span className="price-sep">-</span> <span className="price"> $50.00 </span> </p>
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <div className="clearfix"> </div>
-                        </div>
-                      </div>
-                    </div>
+                    ))}
+                  
                     </Slider>
                   </div>
                 </div>

@@ -1,5 +1,6 @@
 import React from 'react';
-
+import {MISSION_ROUTE } from "../../utils/Consts";
+import { Link } from "react-router-dom";
 const Header = () => {
     return (
 <nav>
@@ -14,12 +15,18 @@ const Header = () => {
                 <div className="toggle"> <span className="icon-bar"></span> <span className="icon-bar"></span> <span className="icon-bar"></span></div>
                 <h2>Menu</h2>
               </div>
+              <div className="menutop">
+                <div className="toggle"> <span className="icon-bar"></span> <span className="icon-bar"></span> <span className="icon-bar"></span></div>
+                <h2>Menu</h2>
+              </div>
               <ul className="submenu">
                 <li>
                   <ul className="topnav">
                     <li className="level0 nav-6 level-top first parent"> <a className="level-top" href="#index.html"> <span>Pages</span> </a>
                       <ul className="level0">
-                        <li className="level1 first"><a href="grid.html"><span>Grid</span></a></li>
+                      <Link to={MISSION_ROUTE} className="dropdown-item">
+                  Наши объекты
+                  </Link>
                         <li className="level1 nav-10-2"> <a href="list.html"> <span>List</span> </a> </li>
                         <li className="level1 nav-10-3"> <a href="http://ow.ly/XqzNo"> <span>Product Detail</span> </a> </li>
                         <li className="level1 nav-10-4"> <a href="shopping_cart.html"> <span>Shopping Cart</span> </a> </li>
@@ -183,7 +190,9 @@ const Header = () => {
               <li className="level1 parent"><a href="../../Variation1/emerald/index.html"><span>Emerald</span></a> </li>
             </ul>
           </li>
-          <li className="level0 parent drop-menu"><a href="#index.html"><span>Pages</span> </a>
+          <li className="level0 parent drop-menu"><Link to={MISSION_ROUTE} className="dropdown-item">
+                  Миссия
+                  </Link>
             <ul className="level1">
               <li className="level1 first"><a href="grid.html"><span>Grid</span></a></li>
               <li className="level1 nav-10-2"> <a href="list.html"> <span>List</span> </a> </li>

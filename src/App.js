@@ -7,15 +7,18 @@ import Home from './pages/home/Home';
 import Footer from './components/footer/Footer';
 import Underfined from './pages/underfined/Underfined';
 
+import Missiya from './components/missiya/Missiya';
+import {MISSION_ROUTE } from "./utils/Consts";
+
 function App() {
   return (
     <div className="App">
       <AppBar />
       <Header />
-
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path={"*"} element={<Underfined/>}/>
+        <Route path={MISSION_ROUTE} element={<Missiya/>}/>
       </Routes>
       <Footer/>
     </div>
