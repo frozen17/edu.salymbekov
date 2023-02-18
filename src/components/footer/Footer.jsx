@@ -6,55 +6,7 @@ import { Link } from 'react-router-dom'
 const Footer = () => {
     return (
         <footer className="footer wow bounceInUp animated">
-        <div className="brand-logo ">
 
-
-                <div className="slider">
-	<div className="slide-track">
-		<div className="slide">
-			<img src="../../assets/images/b-logo2.png" height="50" width="180" alt="" />
-		</div>
-		<div className="slide">
-			<img src="../../assets/images/b-logo2.png" height="50" width="180" alt="" />
-		</div>
-		<div className="slide">
-			<img src="../../assets/images/b-logo3.png" height="50" width="180" alt="" />
-		</div>
-		<div className="slide">
-			<img src="../../assets/images/b-logo4.png" height="50" width="180" alt="" />
-		</div>
-		<div className="slide">
-			<img src="../../assets/images/b-logo5.png" height="50" width="180" alt="" />
-		</div>
-		<div className="slide">
-			<img src="../../assets/images/b-logo6.png" height="50" width="180" alt="" />
-		</div>
-		<div className="slide">
-			<img src="../../assets/images/b-logo5.png" height="50" width="180" alt="" />
-		</div>
-
-        <div className="slide">
-			<img src="../../assets/images/b-logo3.png" height="50" width="180" alt="" />
-		</div>
-	</div>
-</div>
-                  
-                  {/* <div className="item"> <a href="#x"><img src="images/b-logo2.png" alt=""/></a> </div>
-                  
-                  <div className="item"> <a href="#x"><img src="images/b-logo2.png" alt=""/></a> </div>
-                  
-                  <div className="item"> <a href="#x"><img src="images/b-logo3.png" alt=""/></a> </div>
-                  
-                  <div className="item"> <a href="#x"><img src="images/b-logo4.png" alt=""/></a> </div>
-                  
-                  <div className="item"> <a href="#x"><img src="images/b-logo5.png" alt=""/></a> </div>
-                  
-                  <div className="item"> <a href="#x"><img src="images/b-logo6.png" alt=""/></a> </div>
-                  
-                  <div className="item"> <a href="#x"><img src="images/b-logo1.png" alt=""/></a> </div>
-                  <div className="item"> <a href="#x"><img src="images/b-logo4.png" alt=""/></a> </div> */}
-                  
-                </div>
               
         <div className="footer-top">
           <div className="container">

@@ -9,6 +9,7 @@ import Underfined from './pages/underfined/Underfined';
 
 import Missiya from './components/missiya/Missiya';
 import {MISSION_ROUTE } from "./utils/Consts";
+import Detailed from './pages/detailed/Detailed';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path={"*"} element={<Underfined/>}/>
         <Route path={MISSION_ROUTE} element={<Missiya/>}/>
+        <Route path={"/students/:id"} element={<Detailed/>} />
       </Routes>
       <Footer/>
     </div>

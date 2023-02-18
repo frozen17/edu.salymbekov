@@ -1,34 +1,55 @@
 import React from 'react';
 import './AppBar.css'
+import i18n from "../../i18n";
+import useLocalStorage from '../../hooks/use-localstorage';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 
 const AppBar = () => {
+  const [language, setLanguage] = useLocalStorage('language', 'ru')
+  const [age, setAge] = React.useState('');
+
+
+  const handleChangeLanguage = (language, e) => {
+  i18n.changeLanguage(language)
+  }
+
+
+  
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setAge(event.target.value);
+  };
+
+
     return (
 <div className="header-top" >
       <div className="container">
         <div className="row"> 
           
           <div className="col-xs-6">
-            <div className="dropdown block-language-wrapper"> <a role="button" data-toggle="dropdown" data-target="#" className="block-language dropdown-toggle" href="index.html"> <img src="../../assets/images/english.png" alt="language"/> English <span className="caret"></span> </a>
-              <ul className="dropdown-menu" role="menu">
-                <li role="presentation"><a role="menuitem" tabIndex="-1" href="#index.html"><img src="../../assets/images/english.png" alt="language"/> English </a></li>
-                <li role="presentation"><a role="menuitem" tabIndex="-1" href="#index.html"><img src="../../assets/images/francais.png" alt="language"/> French </a></li>
-                <li role="presentation"><a role="menuitem" tabIndex="-1" href="#index.html"><img src="../../assets/images/german.png" alt="language"/> German </a></li>
-              </ul>
-            </div>
+            
+        <Select
+          labelId="demo-simple-select-standard-label"
+          id="demo-simple-select-standard"
+          value={age ? age : 'ru'}
+          onChange={handleChange}
+          label="language"
+        > 
+
+                <MenuItem role="presentation" onClick={() => handleChangeLanguage('en', setLanguage('en'))} value={'en'}> <img src={"https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/US_flag_51_stars.svg/2560px-US_flag_51_stars.svg.png"} className="lng-flag" alt="language"/> English</MenuItem>
+                <MenuItem role="presentation" onClick={() => handleChangeLanguage('ru', setLanguage('ru'))} value={'ru'}> <img src={"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/200px-Flag_of_Russia.svg.png"} alt="language" className="lng-flag"/> Русский </MenuItem>
+                <MenuItem role="presentation" onClick={() => handleChangeLanguage('kgz', setLanguage('kgz'))} value={'kgz'}><img src={"http://tourkg.com/wp-content/uploads/2014/02/flag-Kyrgyzstana.png"} alt="language" className="lng-flag"/> Кыргызча </MenuItem>
+              </Select>
             
             
-            <div className="dropdown block-currency-wrapper"> <a role="button" data-toggle="dropdown" data-target="#" className="block-currency dropdown-toggle" href="#index.html"> USD <span className="caret"></span></a>
-              <ul className="dropdown-menu" role="menu">
-                <li role="presentation"><a role="menuitem" tabIndex="-1" href="#index.html"> $ - Dollar </a></li>
-                <li role="presentation"><a role="menuitem" tabIndex="-1" href="#index.html"> £ - Pound </a></li>
-                <li role="presentation"><a role="menuitem" tabIndex="-1" href="#index.html"> € - Euro </a></li>
-              </ul>
-            </div>
+            
             
            
             
-            <div className="welcome-msg hidden-xs"> Default welcome msg! </div>
           </div>
           <div className="col-xs-6"> 
             
