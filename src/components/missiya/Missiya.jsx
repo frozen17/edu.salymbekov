@@ -36,13 +36,13 @@ const Missiya = () => {
       <div className="row">
         <div className="col-main col-sm-9">
           
-          {nnews?.filter(nnews => "миссия" ).map((nnews) => ( 
+          {nnews?.map((nnews) => ( 
             
           <div className="blog-wrapper" id="main" key={nnews.id}>
             <div className="page-title">
             <h2>Миссия</h2>
           </div>
-            <RichText value={nnews.acf.kg_title}  />
+            <RichText value={nnews.acf.en_title}  />
             <div className="site-content" id="primary">
               <div role="main" id="content">
 </div>
