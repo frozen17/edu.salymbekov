@@ -4,6 +4,7 @@ import "../../slick/slick.css";
 import "../../slick/slick-theme.css";
 import axios from "axios";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Students = () => {
   const sliderRef = useRef(null);
@@ -99,10 +100,10 @@ const Students = () => {
                     <div className="col-item">
                       <div className="product-image-area">
                         {" "}
-                        <a
+                        <Link
                           className="product-image"
                           title="Sample Product"
-                          href="http://ow.ly/XqzNo"
+                          to={`/students/${student.id}`}
                         >
                           {" "}
                           <img
@@ -114,7 +115,7 @@ const Students = () => {
                             className="img-responsive"
                             alt="a"
                           />{" "}
-                        </a>
+                        </Link>
                         <div className="actions-links">
                           <span className="add-to-links">
                             {" "}
