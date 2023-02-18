@@ -1,12 +1,12 @@
 import React, { useRef, useState } from "react";
-import "././Missiya.css"
+import "././History.css"
 import axios from "axios";
 import { useEffect } from "react";
 import { RichText,  } from '@wordpress/block-editor';
 
 
 
-const Missiya = () => {
+const History = () => {
   const sliderRef = useRef(null);
   const [nnews, setNnews] = useState(null);
 
@@ -57,4 +57,4 @@ const Missiya = () => {
     );
 };
 
-export default Missiya;
+export default History;
