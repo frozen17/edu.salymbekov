@@ -116,7 +116,9 @@ const Home = () => {
                 >
                   <Slider {...settings} ref={sliderRef}>
                   {slides?.map((slide) => (
-                  <li key={slide.id} data-transition='random' data-slotamount='7' data-masterspeed='1000'  className="black-text"><img src={slide.acf.photo_slide} className="main-banner" data-bgposition='left top'  data-bgfit='cover' data-bgrepeat='no-repeat' alt="banner"/>
+                  <li key={slide.id} data-transition='random' data-slotamount='7' data-masterspeed='1000'  className="black-text"><img src={slide.acf.photo_slide} style={{
+                    width: "100%",
+                  }} className="main-banner" alt="banner"/>
                   </li>
 
 
@@ -175,8 +177,14 @@ const Home = () => {
         <Events />
         <Banner />
         <News />
+        <div style={{
+          width: "90%",
+          margin: "0 auto"
+        }}>
         <Students />
         <Teachers />
+        </div>
+
         <LatestBlog />
         <Partners/>
       </div>

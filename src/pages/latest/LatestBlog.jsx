@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const LatestBlog = () => {
 
@@ -30,7 +31,7 @@ const [blogs, setBlogs] = useState(null)
         {blogs?.map((blog) => (
         <div className="col-xs-12 col-sm-4" key={blog.id}>
           <div className="blog-img"> <img src={blog.acf.images ? blog.acf.images : "../../assets/images/blog-img1.jpg"} alt=""/>
-            <div className="mask"> <a className="info" href="blog_detail.html">Read More</a> </div>
+            <div className="mask"> <Link className="info" to={`/blog_detailed/${blog.id}`}>Read More</Link> </div>
           </div>
           <h2><a href="blog_detail.html">{blog.title.rendered}</a> </h2>
           <div className="post-date"><i className="icon-calendar"></i> Apr 10, 2014</div>

@@ -1,0 +1,14 @@
+.banner-info{
+
+    position: absolute;
+
+    text-align: center;
+    bottom: 15%;
+color: white;
+width: 100%;
+margin: 0 auto;
+background-color: #111;
+opacity: 0.5;
+
+
+}

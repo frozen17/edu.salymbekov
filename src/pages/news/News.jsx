@@ -1,11 +1,30 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Slider from "react-slick";
 import "../../slick/slick.css";
 import "../../slick/slick-theme.css";
 import './News.css'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const News = () => {
     const sliderRef = useRef(null);
+
+    const [news, setNews] = useState(null)
+
+  const getData = async () => {
+    try {
+      await axios
+        .get(
+          "https://backend.salymbekov.kg/wp-json/wp/v2/latest_news"
+        )
+        .then((res) => setNews(res.data));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    getData();
+  }, []);
 
 
     var settings = {
@@ -67,233 +86,38 @@ const News = () => {
           <div id="featured-slider" className="product-flexslider hidden-buttons">
             <div className="slider-items slider-width-col4"> 
               <Slider {...settings} ref={sliderRef}>
-              <div className="item">
+                {news?.map((news) => (
+                                <div key={news.id} className="item">
                 <div className="col-item">
                   <div className="sale-label sale-top-right">Sale</div>
-                  <div className="product-image-area"> <a className="product-image" title="Sample Product" href="http://ow.ly/XqzNo"> <img src="../../assets/products-images/product1.jpg" className="img-responsive" alt="a" /> </a>
+                  <div className="product-image-area"> <Link className="product-image" title="Sample Product" to={`/latest_news_detailed/${news.id}`}> <img style={{
+                    width: "100%",
+                    height: "35vh"
+                  }} src={news.acf.file1 ? news.acf.file1 : "../../assets/products-images/product1.jpg"} className="img-responsive" alt="a" /> </Link>
                     <div className="actions-links"><span className="add-to-links"> <a title="magik-btn-quickview" className="magik-btn-quickview" href="quick_view.html"><span>quickview</span></a> <a title="Add to Wishlist" className="link-wishlist" href="http://bit.do/bromq"><span>Add to Wishlist</span></a> <a title="Add to Compare" className="link-compare" href="compare.html"><span>Add to Compare</span></a></span> </div>
                   </div>
                   <div className="info">
                     <div className="info-inner">
-                      <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> Sample Product </a> </div>
+                      <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> {news.title.rendered}... </a> </div>
                       <div className="item-content">
                         <div className="ratings">
                           <div className="rating-box">
                             <div className="rating"></div>
                           </div>
                         </div>
-                        <div className="price-box">
-                          <p className="special-price"> <span className="price"> $45.00 </span> </p>
-                          <p className="old-price"> <span className="price-sep">-</span> <span className="price"> $50.00 </span> </p>
-                        </div>
                       </div>
                     </div>
                     <div className="actions">
-                      <button type="button" title="Add to Cart" className="button btn-cart"><span>Add to Cart</span></button>
+                      <button type="button" title="Add to Cart" className="button btn-cart"><span>Подробнее...</span></button>
                     </div>
                     
                     <div className="clearfix"> </div>
                   </div>
                 </div>
               </div>
-              
-              <div className="item">
-                <div className="col-item">
-                  <div className="new-label new-top-right">New</div>
-                  <div className="product-image-area"> <a className="product-image" title="Sample Product" href="http://ow.ly/XqzNo"> <img src="../../assets/products-images/product1.jpg" className="img-responsive" alt="a" /> </a>
-                    <div className="actions-links"><span className="add-to-links"> <a title="magik-btn-quickview" className="magik-btn-quickview" href="quick_view.html"><span>quickview</span></a> <a title="Add to Wishlist" className="link-wishlist" href="http://bit.do/bromq"><span>Add to Wishlist</span></a> <a title="Add to Compare" className="link-compare" href="compare.html"><span>Add to Compare</span></a></span> </div>
-                  </div>
-                  <div className="info">
-                    <div className="info-inner">
-                      <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> Sample Product </a> </div>
-                      <div className="item-content">
-                        <div className="ratings">
-                          <div className="rating-box">
-                            <div className="rating"></div>
-                          </div>
-                        </div>
-                        <div className="price-box"> <span className="regular-price"> <span className="price">$422.00</span> </span> </div>
-                      </div>
-                    </div>
-                    <div className="actions">
-                      <button type="button" title="Add to Cart" className="button btn-cart"><span>Add to Cart</span></button>
-                    </div>
-                    
-                    <div className="clearfix"> </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="item">
-                <div className="col-item">
-                  <div className="sale-label sale-top-right">Sale</div>
-                  <div className="product-image-area"> <a className="product-image" title="Sample Product" href="http://ow.ly/XqzNo"> <img alt="a" className="img-responsive" src="../../assets/products-images/product1.jpg"/> </a>
-                    <div className="actions-links"><span className="add-to-links"> <a title="magik-btn-quickview" className="magik-btn-quickview" href="quick_view.html"><span>quickview</span></a> <a title="Add to Wishlist" className="link-wishlist" href="http://bit.do/bromq"><span>Add to Wishlist</span></a> <a title="Add to Compare" className="link-compare" href="compare.html"><span>Add to Compare</span></a></span> </div>
-                  </div>
-                  <div className="info">
-                    <div className="info-inner">
-                      <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> Sample Product </a> </div>
-                      <div className="item-content">
-                        <div className="ratings">
-                          <div className="rating-box">
-                            <div className="rating"></div>
-                          </div>
-                        </div>
-                        <div className="price-box"> <span className="regular-price"> <span className="price">$50.00</span> </span> </div>
-                      </div>
-                    </div>
-                    <div className="actions">
-                      <button className="button btn-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                    </div>
-                    
-                    <div className="clearfix"> </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="item">
-                <div className="col-item">
-                  <div className="sale-label sale-top-right">Sale</div>
-                  <div className="product-image-area"> <a className="product-image" title="Sample Product" href="http://ow.ly/XqzNo"> <img alt="a" className="img-responsive" src="../../assets/products-images/product1.jpg"/> </a>
-                    <div className="actions-links"><span className="add-to-links"> <a title="magik-btn-quickview" className="magik-btn-quickview" href="quick_view.html"><span>quickview</span></a> <a title="Add to Wishlist" className="link-wishlist" href="http://bit.do/bromq"><span>Add to Wishlist</span></a> <a title="Add to Compare" className="link-compare" href="compare.html"><span>Add to Compare</span></a></span> </div>
-                  </div>
-                  <div className="info">
-                    <div className="info-inner">
-                      <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> Sample Product </a> </div>
-                      <div className="item-content">
-                        <div className="ratings">
-                          <div className="rating-box">
-                            <div className="rating"></div>
-                          </div>
-                        </div>
-                        <div className="price-box">
-                          <p className="special-price"> <span className="price"> $45.00 </span> </p>
-                          <p className="old-price"> <span className="price-sep">-</span> <span className="price"> $50.00 </span> </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="actions">
-                      <button className="button btn-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                    </div>
-                    
-                    <div className="clearfix"> </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="item">
-                <div className="col-item">
-                  <div className="sale-label sale-top-right">Sale</div>
-                  <div className="product-image-area"> <a className="product-image" title="Sample Product" href="http://ow.ly/XqzNo"> <img alt="a" className="img-responsive" src="../../assets/products-images/product1.jpg"/> </a>
-                    <div className="actions-links"><span className="add-to-links"> <a title="magik-btn-quickview" className="magik-btn-quickview" href="quick_view.html"><span>quickview</span></a> <a title="Add to Wishlist" className="link-wishlist" href="http://bit.do/bromq"><span>Add to Wishlist</span></a> <a title="Add to Compare" className="link-compare" href="compare.html"><span>Add to Compare</span></a></span> </div>
-                  </div>
-                  <div className="info">
-                    <div className="info-inner">
-                      <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> Sample Product </a> </div>
-                      <div className="item-content">
-                        <div className="ratings">
-                          <div className="rating-box">
-                            <div className="rating"></div>
-                          </div>
-                        </div>
-                        <div className="price-box">
-                          <p className="special-price"> <span className="price"> $45.00 </span> </p>
-                          <p className="old-price"> <span className="price-sep">-</span> <span className="price"> $50.00 </span> </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="actions">
-                      <button className="button btn-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                    </div>
-                    
-                    <div className="clearfix"> </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="item">
-                <div className="col-item">
-                  <div className="new-label new-top-right">New</div>
-                  <div className="product-image-area"> <a className="product-image" title="Sample Product" href="http://ow.ly/XqzNo"> <img alt="a" className="img-responsive" src="../../assets/products-images/product1.jpg"/> </a>
-                    <div className="actions-links"><span className="add-to-links"> <a title="magik-btn-quickview" className="magik-btn-quickview" href="quick_view.html"><span>quickview</span></a> <a title="Add to Wishlist" className="link-wishlist" href="http://bit.do/bromq"><span>Add to Wishlist</span></a> <a title="Add to Compare" className="link-compare" href="compare.html"><span>Add to Compare</span></a></span> </div>
-                  </div>
-                  <div className="info">
-                    <div className="info-inner">
-                      <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> Sample Product </a> </div>
-                      <div className="item-content">
-                        <div className="ratings">
-                          <div className="rating-box">
-                            <div className="rating"></div>
-                          </div>
-                        </div>
-                        <div className="price-box"> <span className="regular-price"> <span className="price">$422.00</span> </span> </div>
-                      </div>
-                    </div>
-                    <div className="actions">
-                      <button className="button btn-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                    </div>
-                    
-                    <div className="clearfix"> </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="item">
-                <div className="col-item">
-                  <div className="sale-label sale-top-right">Sale</div>
-                  <div className="product-image-area"> <a className="product-image" title="Sample Product" href="http://ow.ly/XqzNo"> <img alt="a" className="img-responsive" src="../../assets/products-images/product1.jpg"/> </a>
-                    <div className="actions-links"><span className="add-to-links"> <a title="magik-btn-quickview" className="magik-btn-quickview" href="quick_view.html"><span>quickview</span></a> <a title="Add to Wishlist" className="link-wishlist" href="http://bit.do/bromq"><span>Add to Wishlist</span></a> <a title="Add to Compare" className="link-compare" href="compare.html"><span>Add to Compare</span></a></span> </div>
-                  </div>
-                  <div className="info">
-                    <div className="info-inner">
-                      <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> Sample Product </a> </div>
-                      <div className="item-content">
-                        <div className="ratings">
-                          <div className="rating-box">
-                            <div className="rating"></div>
-                          </div>
-                        </div>
-                        <div className="price-box"> <span className="regular-price"> <span className="price">$50.00</span> </span> </div>
-                      </div>
-                    </div>
-                    <div className="actions">
-                      <button className="button btn-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                    </div>
-                    
-                    <div className="clearfix"> </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="item">
-                <div className="col-item">
-                  <div className="sale-label sale-top-right">Sale</div>
-                  <div className="product-image-area"> <a className="product-image" title="Sample Product" href="http://ow.ly/XqzNo"> <img alt="a" className="img-responsive" src="../../assets/products-images/product1.jpg"/> </a>
-                    <div className="actions-links"><span className="add-to-links"> <a title="magik-btn-quickview" className="magik-btn-quickview" href="quick_view.html"><span>quickview</span></a> <a title="Add to Wishlist" className="link-wishlist" href="http://bit.do/bromq"><span>Add to Wishlist</span></a> <a title="Add to Compare" className="link-compare" href="compare.html"><span>Add to Compare</span></a></span> </div>
-                  </div>
-                  <div className="info">
-                    <div className="info-inner">
-                      <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> Sample Product </a> </div>
-                      <div className="item-content">
-                        <div className="ratings">
-                          <div className="rating-box">
-                            <div className="rating"></div>
-                          </div>
-                        </div>
-                        <div className="price-box">
-                          <p className="special-price"> <span className="price"> $45.00 </span> </p>
-                          <p className="old-price"> <span className="price-sep">-</span> <span className="price"> $50.00 </span> </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="actions">
-                      <button className="button btn-cart" title="Add to Cart" type="button"><span>Add to Cart</span></button>
-                    </div>
-                    
-                    <div className="clearfix"> </div>
-                  </div>
-                </div>
-              </div>
+                ))}
+
+            
               </Slider>
               
             </div>

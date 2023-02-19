@@ -4,6 +4,9 @@ import "../../slick/slick.css";
 import "../../slick/slick-theme.css";
 import { Link } from 'react-router-dom'
 import axios from 'axios';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+
+
 
 const Events = () => {
 
@@ -96,7 +99,10 @@ const Events = () => {
                     <div className="item" key={event.id}>
                       <div className="col-item">
                         <div className="sale-label sale-top-right">Sale</div>
-                        <div className="product-image-area"> <a className="product-image" title="Sample Product" href="http://ow.ly/XqzNo"> <img src={event.acf.file1 ? event.acf.file1 : "../../assets/products-images/product1.jpg"} className="img-responsive" alt="" /> </a>
+                        <div className="product-image-area"> <Link className="product-image" title="Sample Product" to={`/news_detailed/${event.id}`}> <img style={{
+                                                      width: "100%",
+                                                      height: "40vh"
+                        }} src={event.acf.file1 ? event.acf.file1 : "../../assets/products-images/product1.jpg"} className="img-responsive" alt="" /> </Link>
                           <div className="hover_fly"> <Link className="exclusive ajax_add_to_cart_button" to="#" title="Add to cart">
                             <div><i className="icon-shopping-cart"></i><span>Add to cart</span></div>
                             </Link> <a className="quick-view" href="quick_view.html">
@@ -109,14 +115,13 @@ const Events = () => {
                         </div>
                         <div className="info">
                           <div className="info-inner">
-                            <div className="item-title"> <a title=" Sample Product" href="http://ow.ly/XqzNo"> {event.title.rendered} </a> </div>
                             <div className="item-content">
                               <div className="ratings">
                                 <div className="rating-box">
                                   <div className="rating"></div>
                                 </div>
                               </div>
-                              <p>{event.acf.short_text}</p>
+                              <p>{event.title.rendered}</p>
                             </div>
                           </div>
                           
