@@ -5,6 +5,10 @@ import "../../slick/slick-theme.css";
 import './News.css'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import Fab from '@mui/material/Fab';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const News = () => {
     const sliderRef = useRef(null);
@@ -80,7 +84,18 @@ const News = () => {
                   <h2>ПОСЛЕДНИЕ НОВОСТИ »</h2>
                 </div>
                     <div>
-                        <button onClick={prev}>назад</button><button onClick={next}>след</button>
+                    <Box sx={{ '& > :not(style)': { m: 1 } }}>
+      <Fab sx={{borderRadius: "0", backgroundColor: "#1c95d1", '&:hover': {
+        backgroundColor: "#1c95d1"
+   }}} onClick={prev} size="small" color="secondary" aria-label="add">
+        <ChevronLeftIcon />
+      </Fab>
+      <Fab sx={{borderRadius: "0" , backgroundColor: "#1c95d1", '&:hover': {
+        backgroundColor: "#1c95d1"
+   }}} onClick={next} size="small" color="secondary" aria-label="add">
+        <ChevronRightIcon />
+      </Fab>
+    </Box>
                     </div>
                 </div>
           <div id="featured-slider" className="product-flexslider hidden-buttons">
