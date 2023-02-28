@@ -35,7 +35,7 @@ const AppBar = () => {
         <Select
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
-          value={age ? age : 'ru'}
+          value={language}
           onChange={handleChange}
           label="language"
         > 

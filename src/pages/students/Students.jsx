@@ -5,6 +5,11 @@ import "../../slick/slick-theme.css";
 import axios from "axios";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Box from '@mui/material/Box';
+import Fab from '@mui/material/Fab';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+
 
 const Students = () => {
   const sliderRef = useRef(null);
@@ -83,8 +88,18 @@ const Students = () => {
               <h2>НАШИ СТУДЕНТЫ »</h2>
             </div>
             <div>
-              <button onClick={prevStudent}>назад</button>
-              <button onClick={nextStudent}>след</button>
+            <Box sx={{ '& > :not(style)': { m: 1 } }}>
+      <Fab sx={{borderRadius: "0", backgroundColor: "#1c95d1", '&:hover': {
+        backgroundColor: "#1c95d1"
+   }}} onClick={prevStudent} size="small" color="secondary" aria-label="add">
+        <ChevronLeftIcon />
+      </Fab>
+      <Fab sx={{borderRadius: "0" , backgroundColor: "#1c95d1", '&:hover': {
+        backgroundColor: "#1c95d1"
+   }}} onClick={nextStudent} size="small" color="secondary" aria-label="add">
+        <ChevronRightIcon />
+      </Fab>
+    </Box>
             </div>
           </div>
 

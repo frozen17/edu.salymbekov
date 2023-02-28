@@ -4,7 +4,10 @@ import "../../slick/slick.css";
 import "../../slick/slick-theme.css";
 import { Link } from 'react-router-dom'
 import axios from 'axios';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import Box from '@mui/material/Box';
+import Fab from '@mui/material/Fab';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 
 
@@ -43,7 +46,7 @@ const Events = () => {
           {
             breakpoint: 1024,
             settings: {
-              slidesToShow: 4,
+              slidesToShow: 3,
               slidesToScroll: 1,
               infinite: true,
               dots: false,
@@ -52,7 +55,7 @@ const Events = () => {
           {
             breakpoint: 600,
             settings: {
-              slidesToShow: 1,
+              slidesToShow: 2,
               slidesToScroll: 1,
               initialSlide: 1,
             },
@@ -88,7 +91,19 @@ const Events = () => {
                   <h2>ВАЖНЫЕ МЕРОПРИЯТИЯ »</h2>
                 </div>
                     <div>
-                        <button onClick={prev}>назад</button><button onClick={next}>след</button>
+                        
+                        <Box sx={{ '& > :not(style)': { m: 1 } }}>
+      <Fab sx={{borderRadius: "0", backgroundColor: "#1c95d1", '&:hover': {
+        backgroundColor: "#1c95d1"
+   }}} onClick={prev} size="small" color="secondary" aria-label="add">
+        <ChevronLeftIcon />
+      </Fab>
+      <Fab sx={{borderRadius: "0" , backgroundColor: "#1c95d1", '&:hover': {
+        backgroundColor: "#1c95d1"
+   }}} onClick={next} size="small" color="secondary" aria-label="add">
+        <ChevronRightIcon />
+      </Fab>
+    </Box>
                     </div>
                 </div>
                 <div id="best-seller-slider" className="product-flexslider hidden-buttons">
@@ -116,11 +131,7 @@ const Events = () => {
                         <div className="info">
                           <div className="info-inner">
                             <div className="item-content">
-                              <div className="ratings">
-                                <div className="rating-box">
-                                  <div className="rating"></div>
-                                </div>
-                              </div>
+
                               <p>{event.title.rendered}</p>
                             </div>
                           </div>

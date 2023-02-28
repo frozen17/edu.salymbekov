@@ -3,6 +3,10 @@ import Slider from "react-slick";
 import "../../slick/slick.css";
 import "../../slick/slick-theme.css";
 import axios from "axios";
+import Box from '@mui/material/Box';
+import Fab from '@mui/material/Fab';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const Teachers = () => {
   const sliderRef = useRef(null);
@@ -81,8 +85,18 @@ const Teachers = () => {
               <h2>НАШИ ПРЕПОДАВАТЕЛИ »</h2>
             </div>
             <div>
-              <button onClick={prevTeacher}>назад</button>
-              <button onClick={nextTeacher}>след</button>
+            <Box sx={{ '& > :not(style)': { m: 1 } }}>
+      <Fab sx={{borderRadius: "0", backgroundColor: "#1c95d1", '&:hover': {
+        backgroundColor: "#1c95d1"
+   }}} onClick={prevTeacher} size="small" color="secondary" aria-label="add">
+        <ChevronLeftIcon />
+      </Fab>
+      <Fab sx={{borderRadius: "0" , backgroundColor: "#1c95d1", '&:hover': {
+        backgroundColor: "#1c95d1"
+   }}} onClick={nextTeacher} size="small" color="secondary" aria-label="add">
+        <ChevronRightIcon />
+      </Fab>
+    </Box>
             </div>
           </div>
           <div id="shoes-slider" className="product-flexslider hidden-buttons">
