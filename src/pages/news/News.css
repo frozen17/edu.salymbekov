@@ -1,3 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.news-page{
+    width: 100%;
+}
+
+
 .item{
     padding: 15px;
 }

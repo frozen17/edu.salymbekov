@@ -1,6 +1,6 @@
 import Missiya from "../components/missiya/Missiya";
 import Home from "../pages/home/Home";
-import NotFound from "../pages/notfound/NotFound";
+import Underfined from "../pages/underfined/Underfined";
 import { HOME_ROUTE, MISSION_ROUTE, NOT_FOUND} from "./Consts";
 
 export const publicRoutes = [
@@ -10,7 +10,7 @@ export const publicRoutes = [
     },
     {
         path: NOT_FOUND,
-        element: <NotFound/>
+        element: <Underfined/>
     },
     {
         path: MISSION_ROUTE,

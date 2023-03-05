@@ -708,16 +708,16 @@ nav {
 	height: 44px;
 }
 #nav > li > a:hover {
-	background: #f5f5f5;
+	background: white;
 	color: #333;
 }
 #nav > li > a.active {
 	background: #6cc6f2;
-	color: #fff;
+	color: black;
 	border-bottom: none;
 }
 #nav > li > a.active:hover {
-	background: #fff;
+	background: white;
 	color: #000;
 	border-bottom: none;
 }
@@ -730,10 +730,14 @@ nav {
 .nav {
 	margin: 0px auto 0
 }
-#nav > li:hover > a, .vertnav-top li > a:hover {
-	color: #333;
-	background: #fafafa;
+#nav > li:hover > a {
+	background-color: white !important;
+	color: black !important;
 	border-bottom: none;
+	background: transparent;
+}
+#nav > li:hover > a > h4:hover{
+		color: black;
 }
 .cms-index-index #nav #nav-home > a span, #nav > li.active > a span, .vertnav-top li.current > a span {
 	border-right: none
@@ -776,7 +780,7 @@ nav {
 #nav .level0-wrapper {
 	position: absolute;
 	left: -10000px;
-	background-color: #fff;
+	background-color: white;
 }
 	/* Inner wrapper for additional padding */
 #nav .level0-wrapper2 {
@@ -856,7 +860,7 @@ nav {
 	/* Sidebar menu */
 .vertnav .number {
 	margin-left: 3px;
-	color: #aaa;
+	color: black;
 }
 	/* Main menu */
 #nav .number {
@@ -864,7 +868,7 @@ nav {
 	margin-left: 3px;
 }
 #nav ul li .number {
-	color: #aaa;
+	color: white;
 }
 	/* Other */
 .nav .itemslider {

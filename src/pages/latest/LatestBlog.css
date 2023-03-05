@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.latestBlog{
+    max-width: 100%;
+}
+
+.imgLng {
+    width: 20px;
+    height: 2vh;
+    margin-right: 6px;
+  }
+  
+  
+  .chooseLngTop{
+    display: flex;
+    justify-content: end;
+  }
+  
+  .lng{
+    border: 1px solid;
+  }

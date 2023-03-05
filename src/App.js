@@ -8,7 +8,7 @@ import Footer from './components/footer/Footer';
 import Underfined from './pages/underfined/Underfined';
 
 import Missiya from './components/missiya/Missiya';
-import {MISSION_ROUTE } from "./utils/Consts";
+import {MISSION_ROUTE, NOT_FOUND } from "./utils/Consts";
 import Detailed from './pages/detailed/Detailed';
 import BlogDetailed from './pages/blogDetailed/BlogDetailed';
 import NewsDetailed from './pages/blogDetailed/NewsDetailed';
@@ -21,14 +21,13 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path={"*"} element={<Underfined/>}/>
+        <Route path={NOT_FOUND} element={<Underfined/>}/>
         <Route path={MISSION_ROUTE} element={<Missiya/>}/>
         <Route path={"/students/:id"} element={<Detailed/>} />
         <Route path={"/teacher/:id"} element={<Detailed/>} />
         <Route path={"/blog_detailed/:id"} element={<BlogDetailed/>} />
         <Route path={"/news_detailed/:id"} element={<NewsDetailed/>} />
         <Route path={"/latest_news_detailed/:id"} element={<LatestNewsDetailed/>} />
-        
       </Routes>
       <Footer/>
     </div>
