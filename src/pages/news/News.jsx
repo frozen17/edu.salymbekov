@@ -43,7 +43,7 @@ const News = () => {
           {
             breakpoint: 1024,
             settings: {
-              slidesToShow: 4,
+              slidesToShow: 3,
               slidesToScroll: 1,
               infinite: true,
               dots: false,
@@ -52,7 +52,7 @@ const News = () => {
           {
             breakpoint: 600,
             settings: {
-              slidesToShow: 1,
+              slidesToShow: 2,
               slidesToScroll: 1,
               initialSlide: 1,
             },
@@ -77,7 +77,7 @@ const News = () => {
 
 
     return (
-        <section className="featured-pro container wow bounceInUp animated">
+        <section className="featured-pro container wow bounceInUp animated news-page">
         <div className="slider-items-products">
         <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
                                     <div className="new_title center">
@@ -107,7 +107,7 @@ const News = () => {
                   <div className="sale-label sale-top-right">Sale</div>
                   <div className="product-image-area"> <Link className="product-image" title="Sample Product" to={`/latest_news_detailed/${news.id}`}> <img style={{
                     width: "100%",
-                    height: "35vh"
+                    height: "30vh"
                   }} src={news.acf.file1 ? news.acf.file1 : "../../assets/products-images/product1.jpg"} className="img-responsive" alt="a" /> </Link>
                     <div className="actions-links"><span className="add-to-links"> <a title="magik-btn-quickview" className="magik-btn-quickview" href="quick_view.html"><span>quickview</span></a> <a title="Add to Wishlist" className="link-wishlist" href="http://bit.do/bromq"><span>Add to Wishlist</span></a> <a title="Add to Compare" className="link-compare" href="compare.html"><span>Add to Compare</span></a></span> </div>
                   </div>

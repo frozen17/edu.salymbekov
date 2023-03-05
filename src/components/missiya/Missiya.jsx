@@ -3,6 +3,7 @@ import "././Missiya.css"
 import axios from "axios";
 import { useEffect } from "react";
 import { RichText,  } from '@wordpress/block-editor';
+import { Language } from "@mui/icons-material";
 
 
 
@@ -31,29 +32,29 @@ const Missiya = () => {
 
     return (
       <div>
-<div className="main-container col2-right-layout">
-    <div className="main container">
-      <div className="row">
-        <div className="col-main col-sm-9">
-          
-          {nnews?.map((nnews) => ( 
-            
-          <div className="blog-wrapper" id="main" key={nnews.id}>
-            <div className="page-title">
-            <h2>Миссия</h2>
+        <div className="main-container col2-right-layout">
+          <div className="main container">
+            <div className="row">
+              {console.log(nnews)}
+              <div className="col-main col-sm-9">
+                {nnews?.map((nnews) => (
+                  <div className="blog-wrapper" id="main" key={nnews.id}>
+                    <div className="page-title">
+                      <h2>Миссия</h2>
+                    </div>
+                    {localStorage.getItem('language') === '"en"' &&  <RichText value={nnews.acf.en_title} />}
+                    {localStorage.getItem('language') === '"ru"' &&  <RichText value={nnews.acf.ru_title} />}
+                    {localStorage.getItem('language') === '"kgz"' &&  <RichText value={nnews.acf.kg_title} />}                    
+                    <div className="site-content" id="primary">
+                      <div role="main" id="content"></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-            <RichText value={nnews.acf.en_title}  />
-            <div className="site-content" id="primary">
-              <div role="main" id="content">
-</div>
-</div>
-</div> ))}
-</div>
-</div>
-</div>
-</div>
-</div>
- 
+        </div>
+      </div>
     );
 };
 

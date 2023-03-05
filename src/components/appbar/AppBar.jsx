@@ -2,10 +2,8 @@ import React from 'react';
 import './AppBar.css'
 import i18n from "../../i18n";
 import useLocalStorage from '../../hooks/use-localstorage';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 
 
 const AppBar = () => {
@@ -20,7 +18,7 @@ const AppBar = () => {
 
   
 
-  const handleChange = (event: SelectChangeEvent) => {
+  const handleChange = (event) => {
     setAge(event.target.value);
   };
 
@@ -32,20 +30,13 @@ const AppBar = () => {
           
           <div className="col-xs-6">
             
-        <Select
-          labelId="demo-simple-select-standard-label"
-          id="demo-simple-select-standard"
-          value={language}
-          onChange={handleChange}
-          label="language"
-        > 
-
-                <MenuItem role="presentation" onClick={() => handleChangeLanguage('en', setLanguage('en'))} value={'en'}> <img src={"https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/US_flag_51_stars.svg/2560px-US_flag_51_stars.svg.png"} className="lng-flag" alt="language"/> English</MenuItem>
-                <MenuItem role="presentation" onClick={() => handleChangeLanguage('ru', setLanguage('ru'))} value={'ru'}> <img src={"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/200px-Flag_of_Russia.svg.png"} alt="language" className="lng-flag"/> Русский </MenuItem>
-                <MenuItem role="presentation" onClick={() => handleChangeLanguage('kgz', setLanguage('kgz'))} value={'kgz'}><img src={"http://tourkg.com/wp-content/uploads/2014/02/flag-Kyrgyzstana.png"} alt="language" className="lng-flag"/> Кыргызча </MenuItem>
-              </Select>
+       
             
-            
+          <div className="chooseLngTop">
+<MenuItem style={{border: "2px solid rgb(241, 230, 230)", borderRadius: "5px", marginRight: "5px", color: "#fff"}} className="lng" onClick={() => handleChangeLanguage('en', setLanguage('en'))} value={'en'}><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/640px-Flag_of_the_United_Kingdom.svg.png" className="imgLng" alt="" /> EN</MenuItem>
+<MenuItem style={{border: "2px solid rgb(241, 230, 230)", borderRadius: "5px", marginRight: "5px", color: "#fff"}} onClick={() => handleChangeLanguage('ru', setLanguage('ru'))} value={'ru'}><img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/640px-Flag_of_Russia.svg.png"  className="imgLng" alt="" /> RU</MenuItem>
+<MenuItem style={{border: "2px solid rgb(241, 230, 230)", borderRadius: "5px", marginRight: "5px", color: "#fff"}} onClick={() => handleChangeLanguage('kgz', setLanguage('kgz'))} value={'kgz'}><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Flag_of_Kyrgyzstan.svg/1200px-Flag_of_Kyrgyzstan.svg.png" className="imgLng" alt="" /> KGZ</MenuItem>
+</div>
             
             
            
@@ -71,7 +62,6 @@ const AppBar = () => {
         <div className="col-lg-8 col-sm-6 col-md-8"> 
           <div className="search-box">
             <form action="cat" method="POST" id="search_mini_form" name="Categories">
-              
               <input type="text" placeholder="Search here..."  maxLength="70" className="" name="search" id="search"/>
               <button id="submit-button" className="search-btn-bg"><span>Search</span></button>
             </form>

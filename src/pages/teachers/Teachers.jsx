@@ -39,7 +39,7 @@ const Teachers = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
           dots: false,
@@ -71,7 +71,7 @@ const Teachers = () => {
   };
 
   return (
-    <div className="col-md-6">
+    <div className="col-md-6 col-xs-12">
       <div className="shoes-product-slider small-pr-slider cat-section">
         <div className="slider-items-products">
           <div
@@ -85,7 +85,7 @@ const Teachers = () => {
               <h2>НАШИ ПРЕПОДАВАТЕЛИ »</h2>
             </div>
             <div>
-            <Box sx={{ '& > :not(style)': { m: 1 } }}>
+            <Box sx={{ '& > :not(style)': { m: 1 }, position: "relative", zIndex: "1" }}>
       <Fab sx={{borderRadius: "0", backgroundColor: "#1c95d1", '&:hover': {
         backgroundColor: "#1c95d1"
    }}} onClick={prevTeacher} size="small" color="secondary" aria-label="add">

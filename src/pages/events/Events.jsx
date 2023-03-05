@@ -46,7 +46,7 @@ const Events = () => {
           {
             breakpoint: 1024,
             settings: {
-              slidesToShow: 3,
+              slidesToShow: 2,
               slidesToScroll: 1,
               infinite: true,
               dots: false,
@@ -55,7 +55,7 @@ const Events = () => {
           {
             breakpoint: 600,
             settings: {
-              slidesToShow: 2,
+              slidesToShow: 1,
               slidesToScroll: 1,
               initialSlide: 1,
             },
@@ -81,67 +81,143 @@ const Events = () => {
 
 
     return (
-        <section className="main-container col1-layout home-content-container">
+      <section className="main-container col1-layout home-content-container">
         <div className="container">
           <div className="std">
             <div className="best-seller-pro wow bounceInUp animated">
               <div className="slider-items-products">
-        <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-                                    <div className="new_title center">
-                  <h2>ВАЖНЫЕ МЕРОПРИЯТИЯ »</h2>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <div className="new_title center">
+                    <h2>ВАЖНЫЕ МЕРОПРИЯТИЯ »</h2>
+                  </div>
+                  <div>
+                    <Box sx={{ "& > :not(style)": { m: 1 } }}>
+                      <Fab
+                        sx={{
+                          borderRadius: "0",
+                          backgroundColor: "#1c95d1",
+                          "&:hover": {
+                            backgroundColor: "#1c95d1",
+                          },
+                        }}
+                        onClick={prev}
+                        size="small"
+                        color="secondary"
+                        aria-label="add"
+                      >
+                        <ChevronLeftIcon />
+                      </Fab>
+                      <Fab
+                        sx={{
+                          borderRadius: "0",
+                          backgroundColor: "#1c95d1",
+                          "&:hover": {
+                            backgroundColor: "#1c95d1",
+                          },
+                        }}
+                        onClick={next}
+                        size="small"
+                        color="secondary"
+                        aria-label="add"
+                      >
+                        <ChevronRightIcon />
+                      </Fab>
+                    </Box>
+                  </div>
                 </div>
-                    <div>
-                        
-                        <Box sx={{ '& > :not(style)': { m: 1 } }}>
-      <Fab sx={{borderRadius: "0", backgroundColor: "#1c95d1", '&:hover': {
-        backgroundColor: "#1c95d1"
-   }}} onClick={prev} size="small" color="secondary" aria-label="add">
-        <ChevronLeftIcon />
-      </Fab>
-      <Fab sx={{borderRadius: "0" , backgroundColor: "#1c95d1", '&:hover': {
-        backgroundColor: "#1c95d1"
-   }}} onClick={next} size="small" color="secondary" aria-label="add">
-        <ChevronRightIcon />
-      </Fab>
-    </Box>
-                    </div>
-                </div>
-                <div id="best-seller-slider" className="product-flexslider hidden-buttons">
-                  <div className="slider-items slider-width-col4"> 
-                  {console.log(events)}
-                  <Slider {...settings} ref={sliderRef}>
-                  {events?.map((event) => (
-                    <div className="item" key={event.id}>
-                      <div className="col-item">
-                        <div className="sale-label sale-top-right">Sale</div>
-                        <div className="product-image-area"> <Link className="product-image" title="Sample Product" to={`/news_detailed/${event.id}`}> <img style={{
-                                                      width: "100%",
-                                                      height: "40vh"
-                        }} src={event.acf.file1 ? event.acf.file1 : "../../assets/products-images/product1.jpg"} className="img-responsive" alt="" /> </Link>
-                          <div className="hover_fly"> <Link className="exclusive ajax_add_to_cart_button" to="#" title="Add to cart">
-                            <div><i className="icon-shopping-cart"></i><span>Add to cart</span></div>
-                            </Link> <a className="quick-view" href="quick_view.html">
-                            <div><i className="icon-eye-open"></i><span>Quick view</span></div>
-                            </a> <a className="add_to_compare" href="compare.html">
-                            <div><i className="icon-random"></i><span>Add to compare</span></div>
-                            </a> <a className="addToWishlist wishlistProd_5" href="http://bit.do/bromq" >
-                            <div><i className="icon-heart"></i><span>Add to Wishlist</span></div>
-                            </a> </div>
-                        </div>
-                        <div className="info">
-                          <div className="info-inner">
-                            <div className="item-content">
+                <div
+                  id="best-seller-slider"
+                  className="product-flexslider hidden-buttons"
+                >
+                  <div className="slider-items slider-width-col4">
+                    <Slider {...settings} ref={sliderRef}>
+                      {events?.map((event) => (
+                        <div className="item" key={event.id}>
+                          <div className="col-item">
+                            <div className="sale-label sale-top-right">
+                              Sale
+                            </div>
+                            <div className="product-image-area">
+                              {" "}
+                              <Link
+                                className="product-image"
+                                title="Sample Product"
+                                to={`/news_detailed/${event.id}`}
+                              >
+                                {" "}
+                                <img
+                                  style={{
+                                    width: "100%",
+                                    height: "40vh",
+                                  }}
+                                  src={
+                                    event.acf.file1
+                                      ? event.acf.file1
+                                      : "../../assets/products-images/product1.jpg"
+                                  }
+                                  className="img-responsive"
+                                  alt=""
+                                />{" "}
+                              </Link>
+                              <div className="hover_fly">
+                                {" "}
+                                <Link
+                                  className="exclusive ajax_add_to_cart_button"
+                                  to="#"
+                                  title="Add to cart"
+                                >
+                                  <div>
+                                    <i className="icon-shopping-cart"></i>
+                                    <span>Add to cart</span>
+                                  </div>
+                                </Link>{" "}
+                                <a
+                                  className="quick-view"
+                                  href="quick_view.html"
+                                >
+                                  <div>
+                                    <i className="icon-eye-open"></i>
+                                    <span>Quick view</span>
+                                  </div>
+                                </a>{" "}
+                                <a
+                                  className="add_to_compare"
+                                  href="compare.html"
+                                >
+                                  <div>
+                                    <i className="icon-random"></i>
+                                    <span>Add to compare</span>
+                                  </div>
+                                </a>{" "}
+                                <a
+                                  className="addToWishlist wishlistProd_5"
+                                  href="http://bit.do/bromq"
+                                >
+                                  <div>
+                                    <i className="icon-heart"></i>
+                                    <span>Add to Wishlist</span>
+                                  </div>
+                                </a>{" "}
+                              </div>
+                            </div>
+                            <div className="info">
+                              <div className="info-inner">
+                                <div className="item-content">
+                                  <p>{event.title.rendered}</p>
+                                </div>
+                              </div>
 
-                              <p>{event.title.rendered}</p>
+                              <div className="clearfix"> </div>
                             </div>
                           </div>
-                          
-                          <div className="clearfix"> </div>
                         </div>
-                      </div>
-                    </div>
-                    ))}
-                  
+                      ))}
                     </Slider>
                   </div>
                 </div>

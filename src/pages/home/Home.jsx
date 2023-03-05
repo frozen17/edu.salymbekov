@@ -104,7 +104,7 @@ const Home = () => {
           }}>
           <Slider {...settings} ref={sliderRef}>
                   {slides?.map((slide) => (
-                    <div>
+                    <div key={slide.id}>
                                           <li
                       key={slide.id}
                       data-transition="random"
@@ -219,8 +219,8 @@ const Home = () => {
       <News />
       <div
         style={{
-          width: "90%",
-          margin: "0 auto",
+          maxWidth: "100%",
+          margin: "0 auto"
         }}
       >
         <Students />
