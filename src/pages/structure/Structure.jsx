@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { Language } from "@mui/icons-material";
 
-const History = () => {
+const Structure = () => {
   const sliderRef = useRef(null);
   const [nnews, setNnews] = useState(null);
 
@@ -27,7 +27,7 @@ const History = () => {
           <div className="row">
             <div className="col-main col-sm-9">
               {nnews
-                ?.filter((nnews) => nnews.acf.catigoria.label === "history")
+                ?.filter((nnews) => nnews.acf.catigoria.label === "Structure")
                 .map((nnews) => (
                   <div className="blog-wrapper" id="main" key={nnews.id}>
                     <div className="page-title">
@@ -61,4 +61,4 @@ const History = () => {
   );
 };
 
-export default History;
+export default Structure;
