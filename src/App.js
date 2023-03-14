@@ -8,12 +8,14 @@ import Footer from './components/footer/Footer';
 import Underfined from './pages/underfined/Underfined';
 import History from './pages/history/History';
 import Missiya from './components/missiya/Missiya';
-import {MISSION_ROUTE, NOT_FOUND, HISTORY_ROUTE, STRUCTURE_ROUTE } from "./utils/Consts";
+import {MISSION_ROUTE, NOT_FOUND, HISTORY_ROUTE, STRUCTURE_ROUTE, FOUNDERS_ROUTE, DEVELOPMENT_ROUTE } from "./utils/Consts";
 import Detailed from './pages/detailed/Detailed';
 import BlogDetailed from './pages/blogDetailed/BlogDetailed';
 import NewsDetailed from './pages/blogDetailed/NewsDetailed';
 import LatestNewsDetailed from './pages/blogDetailed/LatestNewsDetailed';
 import Structure from './pages/structure/Structure';
+import Founders from './pages/Founders/founders';
+import Development from './pages/Development/Development';
 
 function App() {
   return (
@@ -25,7 +27,9 @@ function App() {
         <Route path={NOT_FOUND} element={<Underfined/>}/>
         <Route path={MISSION_ROUTE} element={<Missiya/>}/>
         <Route path={HISTORY_ROUTE} element={<History/>}/>
+        <Route path={FOUNDERS_ROUTE} element={<Founders/>}/>
         <Route path={STRUCTURE_ROUTE} element={<Structure/>} />
+        <Route path={DEVELOPMENT_ROUTE} element={<Development/>} />
         <Route path={"/students/:id"} element={<Detailed/>} />
         <Route path={"/teacher/:id"} element={<Detailed/>} />
         <Route path={"/blog_detailed/:id"} element={<BlogDetailed/>} />
